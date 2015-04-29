@@ -15,4 +15,8 @@ class Vehicle
   define_method(:make) do
     @make
   end
+
+  define_method(:model) do
+    @model
+  end
 end
