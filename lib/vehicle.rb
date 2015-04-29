@@ -23,4 +23,12 @@ class Vehicle
   define_method(:year) do
     @year
   end
+
+  define_singleton_method(:all) do
+    @@vehicles
+  end
+
+  define_singleton_method(:clear) do
+    @@vehicles = []
+  end
 end
