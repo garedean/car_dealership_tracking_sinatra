@@ -24,6 +24,10 @@ class Vehicle
     @year
   end
 
+  define_method(:age) do
+    Time.now().year - @year
+  end
+
   define_singleton_method(:all) do
     @@vehicles
   end
