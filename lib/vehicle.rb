@@ -10,6 +10,7 @@ class Vehicle
 
   define_method(:save) do
     @@vehicles.push(self)
+    self
   end
 
   define_method(:make) do
@@ -31,10 +32,7 @@ class Vehicle
   define_method(:worth_buying?) do
     american_cars = ["Chrysler", "Ford", "Dodge"]
 
-    Vehicle.all().each do |vehicle|
-      return true if american_cars.include?(vehicle.make) && vehicle.age < 15
-    end
-    false
+    american_cars.include?(make).&(age.<(15))
   end
 
   define_singleton_method(:all) do
