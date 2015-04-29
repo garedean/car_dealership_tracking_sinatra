@@ -46,7 +46,7 @@ describe(Vehicle) do
 
   describe('.clear') do
     it('empties the array of vehicles') do
-      test_vehicle = Vehicle.new('Nissan', '300zx', 2005).save
+      test_vehicle = Vehicle.new('Nissan', '300zx', 2005).save()
       expect(Vehicle.clear()).to(eq([]))
     end
   end
