@@ -17,4 +17,12 @@ describe(Vehicle) do
       expect(test_vehicle.model()).to(eq('300zx'))
     end
   end
+
+  describe('#year') do
+    it('returns the year of a vehicle') do
+      test_vehicle = Vehicle.new('Nissan', '300zx', 2005)
+      test_vehicle.save()
+      expect(test_vehicle.year()).to(eq(2005))
+    end
+  end
 end
