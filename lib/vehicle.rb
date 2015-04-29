@@ -28,6 +28,15 @@ class Vehicle
     Time.now().year - @year
   end
 
+  define_method(:worth_buying?) do
+    american_cars = ["Chrysler", "Ford", "Dodge"]
+
+    Vehicle.all().each do |vehicle|
+      return true if american_cars.include?(vehicle.make) && vehicle.age < 15
+    end
+    false
+  end
+
   define_singleton_method(:all) do
     @@vehicles
   end
