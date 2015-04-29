@@ -1,11 +1,12 @@
 class Vehicle
 
-@@vehicles = []
+  @@vehicles = []
 
   define_method(:initialize) do |make, model, year|
     @make = make
     @model = model
     @year = year
+    @id = @@vehicles.length() + 1
   end
 
   define_method(:save) do
@@ -25,6 +26,10 @@ class Vehicle
     @year
   end
 
+  define_method(:id) do
+    @id
+  end
+
   define_method(:age) do
     Time.now().year - @year
   end
@@ -41,5 +46,15 @@ class Vehicle
 
   define_singleton_method(:clear) do
     @@vehicles = []
+  end
+
+  define_singleton_method(:find) do |id|
+    vehicle_match = nil
+    @@vehicles.each() do |vehicle|
+      if vehicle.id() == id
+        vehicle_match = vehicle
+      end
+    end
+    vehicle_match
   end
 end

@@ -1,0 +1,20 @@
+<h1 class="text-center">Welcome to <%= @dealership.name() %>!</h1>
+
+<div>
+  <ul>
+    <% if @dealership.cars().size > 0 %>
+      <% @dealership.cars().each() do |car| %>
+      <li><a href='/vehicles/<%= car.id() %>'><%= car.make() %> <%= car.model() %> <%= car.year() %></a></li>
+      <% end %>
+    <% else %>
+      <p>There are no cars at this dealership!</p>
+    <% end %>
+  </ul>
+</div>
+
+<p>
+  <a href='/dealerships/<%= @dealership.id() %>/vehicles/new'>Add a new vehicle</a>
+</p>
+<p>
+  <a href='/'>Go back to 'Dealership Central'</a>
+</p>

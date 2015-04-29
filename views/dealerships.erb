@@ -1,0 +1,17 @@
+<h1>Dealerships</h1>
+
+<% if Dealership.all().size() > 0 %>
+  <ul>
+    <% @dealerships.each() do |dealership| %>
+    <li><a href='/dealerships/<%= dealership.id() %>'><%= dealership.name() %>, home to <%= dealership.cars().size() %> beautiful cars</a></li>
+    <% end %>
+  </ul>
+
+  <a href="/dealerships/new">Click here to add a dealership</a>
+<% else %>
+  <p>No dealerships exist! Click <a href="/dealerships/new">here</a> to add one</p>
+<% end %>
+
+<p>
+  <a href='/'>Go back to 'Dealership Central'</a>
+</p>
