@@ -36,4 +36,31 @@ describe(Vehicle) do
       expect(Vehicle.all()).to(eq([test_vehicle]))
     end
   end
+
+  describe('.all') do
+    it('is empty at first') do
+      expect(Vehicle.all()).to(eq([]))
+    end
+
+    it('returns all vehicles in the array of vehicles') do
+      test_vehicle = Vehicle.new('Nissan', '300zx', 2005)
+      test_vehicle.save()
+      expect(Vehicle.all()).to(eq([test_vehicle]))
+    end
+  end
+
+  describe('.clear') do
+    it('empties the array of vehicles') do
+      test_vehicle = Vehicle.new('Nissan', '300zx', 2005)
+      test_vehicle.save()
+      expect(Vehicle.clear()).to(eq([]))
+    end
+  end
+
+  describe('#age') do
+    it('retunrns the age of the vehicle') do
+      test_vehicle = Vehicle.new('Nissan', '300zx', 2005)
+      expect(test_vehicle.age()).to(eq(10))
+    end
+  end
 end
