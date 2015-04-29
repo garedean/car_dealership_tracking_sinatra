@@ -44,8 +44,9 @@ post('/vehicles') do
   erb(:success)
 end
 
-get('/vehicles/:id') do
+get('/dealerships/:dealer_id/vehicles/:id') do
   @vehicle = Vehicle.find(params.fetch('id').to_i)
+  @dealership = Dealership.find(params.fetch('dealer_id').to_i)
   erb(:vehicle)
 end
 

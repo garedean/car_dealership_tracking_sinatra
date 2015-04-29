@@ -4,7 +4,7 @@
   <ul>
     <% if @dealership.cars().size > 0 %>
       <% @dealership.cars().each() do |car| %>
-      <li><a href='/vehicles/<%= car.id() %>'><%= car.make() %> <%= car.model() %> <%= car.year() %></a></li>
+      <li><a href='/dealerships/<%= @dealership.id %>/vehicles/<%= car.id() %>'><%= car.make() %> <%= car.model() %> <%= car.year() %></a></li>
       <% end %>
     <% else %>
       <p>There are no cars at this dealership!</p>
