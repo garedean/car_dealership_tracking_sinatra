@@ -38,6 +38,7 @@ post('/vehicles') do
   model = params.fetch('model')
   year = params.fetch('year').to_i
   dealership_id = params.fetch('dealership_id').to_i
+
   @dealership = Dealership.find(dealership_id)
   @dealership.add_vehicle(Vehicle.new(make, model, year).save())
 
